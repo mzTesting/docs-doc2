@@ -46,6 +46,7 @@ jobs:
           uses: ravsamhq/notify-slack-action@master
           with:
             status: ${{ job.status }}
+            notification_title: "{workflow} failed with this error: {steps.api.outputs.response}"
             notify_when: 'failure'
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
