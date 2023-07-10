@@ -42,9 +42,5 @@ jobs:
             
             log-response: true
             
-        - name: Slack Notification
-          uses: rtCamp/action-slack-notify@master
-          env:
-            SLACK_MESSAGE: ${{ steps.api.outputs.stdout }}         
-            SLACK_TITLE: CI Test Suite
-            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        - name: "Use response"
+          run: echo ${{ steps.api.outputs.response }}
