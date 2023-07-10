@@ -27,7 +27,7 @@ jobs:
             # If more than one value is needed, you can use comma (,) as separator
             # In this case if the response status code is not one of 200, 201 and 204, the job will be failed
             # Default is 200,201,204
-            accept: 200,201,204
+            accept: 200,201,204,500
 
             # Headers can be passed through with a json object string
             headers: '{ "Content-Type": "application/json", "Authorization": ${{secrets.AUTHORIZATION_TOKEN}} }'
@@ -43,4 +43,4 @@ jobs:
             log-response: true
             
         - name: "Use response"
-          run: echo ${{ steps.api.outputs.id }}
+          run: echo ${{ steps.api.outputs.* }}
